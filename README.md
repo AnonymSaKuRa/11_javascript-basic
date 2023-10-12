@@ -35,15 +35,19 @@ a = 10;   //値の代入
 console.log(a);
 a = "Hello"   //値の再代入
 console.log(a);
+
 //再宣言なのでエラーとなる
 // let a = "world";
+
 //定数の宣言
 const PI = 3.14;
 console.log(PI);   //再宣言も再代入もできない
+
 //複合代入演算子
 let n = 5;
 n += 2;   //複合代入演算子
 console.log(n);
+
 //インクリメント
 let n3 = 5;
 n3++;
