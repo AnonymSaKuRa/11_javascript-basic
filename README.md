@@ -64,6 +64,25 @@ console.log(s.toUpperCase());
 console.log(s.length);   //文字数を表示
 ```
 
+```js
+//メロンを加えたい
+//ul要素を取り入れる
+const element = document.querySelector("ul");
+console.log(element);
+
+//selectorはCSSのセレクターなので
+const element2 = document.querySelector("#fruitslist");
+console.log(element2)
+
+const element3 = document.querySelector(".listbox__list");
+console.log(element3)
+
+//新しいリストを作る
+const liLast = document.createElement("li");   //新しいリストの作成
+console.dir(liLast);   //dirに変更、中身を見れる
+liLast.textContent = "メロン";   //テキストを追加
+console.log(liLast);
+```
 
 ## 10月5日
 
