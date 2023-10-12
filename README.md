@@ -56,6 +56,15 @@ n3++;
 console.log(n3);
 ```
 
+### 文字列の扱い
+
+```js
+//文字列の扱い
+let s = "Hello";
+console.log(s.toUpperCase());
+console.log(s.length);   //文字数を表示
+```
+
 
 ## 10月5日
 
