@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sample7-7-2</title>
+</head>
+
+<body>
+    <h1>果物の種類</h1>
+    <ul id="fruitslist" class="listbox__list">
+        <li>りんご</li>
+        <li>みかん</li>
+        <li>バナナ</li>
+    </ul>
+
+
+    <!--リストを操作するDOM操作のスクリプト-->
+    <script>
+        //メロンを加えたい
+        //ul要素を取り入れる
+        const element = document.querySelector("ul");
+
+        //新しいリストを作る
+        const liLast = document.createElement("li");
+        liLast.textContent = "メロン";
+
+        //ulの最後に「メロン」を追加する
+        element.appendChild(liLast);
+
+        const liLast2 = document.createElement("li");
+        liLast2.textContent = "いちご";
+        element.appendChild(liLast2);
+
+    </script>
+</body>
+
+</html>

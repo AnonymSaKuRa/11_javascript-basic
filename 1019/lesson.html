@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lesson</title>
+</head>
+
+<body>
+    <dl class="recipe">
+        <dt>カップヌードルの作り方</dt>
+        <dd>フタを途中まで開ける</dd>
+        <dd>お湯を線まで入れてフタをする</dd>
+    </dl>
+
+    <script>
+        //dlを取得
+        const recipe = document.querySelector(".recipe");
+        //新しいddを作成
+        const ddLast = document.createElement("dd");
+        //ddのテキストを追加
+        ddLast.textContent = "3分待ってできあがり";
+        //dlの最後に追加
+        recipe.appendChild(ddLast);
+
+
+
+        //配列の宣言
+        const animals = ["dog", "cat", "bird"];
+        //「cat」を取得
+        console.log(animals[1]);
+        //配列の長さを取得
+        console.log(animals.length);
+
+
+
+        //七の段を表示
+        for (let i = 0; i < 9; i++) {
+            console.log(`7 * ${i + 1} = ${7 * (i + 1)}`);
+        };
+
+    </script>
+</body>
+
+</html>

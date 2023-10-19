@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>複数要素の追加</title>
+    <meta charset="UTF-8" />
+</head>
+
+<body>
+    <h1>人気フルーツ一覧</h1>
+    <ul id="fruitslist" class="listbox__list"></ul>
+
+    <script>
+        //ulの中に果物一覧を一度にliで追加したい
+        const fruits = ["りんご", "もも", "バナナ"];
+
+        // fruitslistを取得
+        const fruitslist = document.querySelector("#fruitslist");
+
+        for (let i = 0; i < fruits.length; i++) {
+            // 新たにliを作成
+            const liLast = document.createElement("li");
+            // テキストを追加
+            liLast.textContent = fruits[i];
+            // リストの最後に追加
+            fruitslist.appendChild(liLast);
+        };
+    </script>
+</body>
+
+</html>
