@@ -51,9 +51,6 @@ ddLast.textContent = "3分待ってできあがり";
 //dlの最後に追加
 recipe.appendChild(ddLast);
 
-
-
-
 //配列の宣言
 const animals = ["dog", "cat", "bird"];
 
