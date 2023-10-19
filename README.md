@@ -4,6 +4,71 @@
 1. 10月5日（木）初めての一歩
 2. 10月5日（木）Github　リポジトリ作成
 
+
+## 10月１９日
+
+### 配列
+```js
+//ulの中に果物一覧を一度にliで追加したい
+const fruits = ["りんご", "もも", "バナナ"]
+
+// fruitslistを取得
+const fruitslist = document.querySelector("#fruitslist")
+
+for (let i = 0; i < fruits.length; i++) {
+    // 新たにliを作成
+    const liLast = document.createElement("li");
+    // テキストを追加
+    liLast.textContent = fruits[i];
+    // リストの最後に追加
+    fruitslist.appendChild(liLast);
+}
+```
+
+### for文と配列の組み合わせ
+```js
+for (let i = 0; i < 4; i++) {
+    //0~3を表示する処理
+    console.log(i);
+};
+
+const name_list = ["松田", "田中", "中山", "山本", "本田"];
+console.log(name_list)
+
+for (let i = 0; i < name_list.length; i++) {
+    console.log(name_list[i]);
+}
+```
+
+### lesson
+```js
+//dlを取得
+const recipe = document.querySelector(".recipe");
+//新しいddを作成
+const ddLast = document.createElement("dd");
+//ddのテキストを追加
+ddLast.textContent = "3分待ってできあがり";
+//dlの最後に追加
+recipe.appendChild(ddLast);
+
+
+
+
+//配列の宣言
+const animals = ["dog", "cat", "bird"];
+
+//「cat」を取得
+console.log(animals[1]);
+
+//配列の長さを取得
+console.log(animals.length)
+
+//七の段を表示
+for (let i = 0; i < 9; i++) {
+    console.log(`7 * ${i + 1} = ${7 * (i + 1)}`);
+}
+```
+
 ## 10月12日
 
 ### 文字列の計算
