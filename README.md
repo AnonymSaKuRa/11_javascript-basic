@@ -5,6 +5,70 @@
 2. 10月5日（木）Github　リポジトリ作成
 
 
+## １０月２６日
+
+### 要素の取得(getElements)
+```js
+// さつまいも
+// 挿入したい要素を取得
+const sweetpotatos = document.querySelector(".imo");
+
+// innerHTMLで追加
+sweetpotatos.innerHTML += `<li>べにはるか</li>`;
+```
+
+```js
+// バレーボール
+const nations_list = document.querySelectorAll(".mens li");
+for (let i = 0; i < nations_list.length; i++) {
+    console.log(nations_list[i]);
+}
+
+const id_element = document.getElementById("toparis");
+console.log(id_element)
+
+const tag_name = document.getElementsByTagName("li");
+for (let i = 0; i < tag_name.length; i++) {
+    console.log(tag_name[i]);
+}
+
+const class_name = document.getElementsByClassName("pool_a");
+for (let i = 0; i < class_name.length; i++) {
+    console.log(class_name[i]);
+};
+```
+
+### 振り返り問題
+```html
+<section>
+    <h1>犬のギャラリー</h1>
+
+    <div class="card1">
+      <h2>柴犬の散歩</h2>
+      <p>雨だったけど、散歩に連れて行った</p>
+    </div>
+
+    <div class="card2">
+      <h2>秋田犬の寝顔</h2>
+      <p>普段は不細工だけど、寝顔はかわいい</p>
+    </div>
+
+    <img src="images/dog001.png" alt="柴犬" id="pochi" class="shibaDog" />
+    <img src="images/dog002.png" alt="秋田犬" id="hachiko" class="akitaDog" />
+  </section>
+```
+```js
+// 要素の取得
+const pochi = document.querySelector(".shibaDog");
+const hachiko = document.querySelector(".akitaDog");
+const card1 = document.querySelector(".card1");
+const card2 = document.querySelector(".card2");
+
+// 要素を追加
+card1.appendChild(pochi);
+card2.appendChild(hachiko);
+```
+
 ## 10月１９日
 
 ### 配列
