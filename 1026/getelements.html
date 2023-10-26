@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>volleyball</title>
+</head>
+
+<body>
+    <h1>バレーボール パリ五輪出場権獲得国</h1>
+    <ul id="toparis" class="mens">
+        <li class="pool_a">ドイツ</li>
+        <li class="pool_a">ブラジル</li>
+        <li class="pool_b">アメリカ</li>
+        <li class="pool_b">日本</li>
+        <li class="pool_c">ポーランド</li>
+        <li class="pool_c">カナダ</li>
+    </ul>
+
+    <ul class="imo">
+        <li>ベニアズマ</li>
+        <li>安納いも</li>
+    </ul>
+
+    <script>
+        // さつまいも
+        // 挿入したい要素を取得
+        const sweetpotatos = document.querySelector(".imo");
+
+        // innerHTMLで追加
+        sweetpotatos.innerHTML += `<li>べにはるか</li>`
+
+    </script>
+
+    <script>
+        // バレーボール
+        const nations_list = document.querySelectorAll(".mens li");
+        for (let i = 0; i < nations_list.length; i++) {
+            // console.log(nations_list[i]);
+        };
+
+        const id_element = document.getElementById("toparis");
+        // console.log(id_element);
+
+        const tag_name = document.getElementsByTagName("li");
+        for (let i = 0; i < tag_name.length; i++) {
+            // console.log(tag_name[i]);
+        };
+
+        const class_name = document.getElementsByClassName("pool_a");
+        for (let i = 0; i < class_name.length; i++) {
+            // console.log(class_name[i]);
+        };
+
+    </script>
+</body>
+
+</html>
