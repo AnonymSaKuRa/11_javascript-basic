@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>演習</title>
+
+    <style>
+        body {
+            height: 2000px;
+        }
+
+        .text {
+            color: red;
+        }
+
+        .text .blue {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <p class="text"><span>色の名前</span>色です。</p>
+
+    <button class="red">赤色</button>
+    <button class="blue">青色</button>
+    <button class="yellow">黄色</button>
+
+    <script>
+        // 文字の色を変える
+        // ボタンを取得
+        const redBtn = document.querySelector(".red");
+        const blueBtn = document.querySelector(".blue")
+        const yellowBtn = document.querySelector(".yellow")
+
+        // テキストを取得
+        const text = document.querySelector(".text");
+        const textSpan = document.querySelector(".text span");
+
+        // イベントリスナーを設定
+        // 赤色に変更
+        redBtn.addEventListener("click", function () {
+            // テキストの色を変更
+            text.style.color = "red";
+            textSpan.innerText = "赤";
+            textSpan.style.fontSize = "50px";
+            console.dir(textSpan);
+        });
+
+        // 青色に変更
+        blueBtn.addEventListener("click", function () {
+            // テキストの色を変更
+            text.style.color = "blue";
+            textSpan.innerText = "青";
+            textSpan.style.fontSize = "10px";
+        });
+
+        // 黄色に変更
+        yellowBtn.addEventListener("click", function () {
+            // テキストの色を変更
+            text.style.color = "yellow";
+            textSpan.innerText = "黃";
+            textSpan.style.fontSize = "30px";
+        });
+
+        // スクロールされるたびに実行
+        window.addEventListener("scroll", function () {
+            console.log(`スクロールされました`);
+        });
+    </script>
+</body>
+
+</html>

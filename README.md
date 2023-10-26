@@ -7,6 +7,24 @@
 
 ## １０月２６日
 
+### addEventListenerとsetAttribute
+```js
+// 要素の取得
+const text = document.querySelector("p span");
+const btnRed = document.querySelector(".redder");
+const btnBig = document.querySelector(".bigger");
+
+// クリックしたら赤くなるイベント
+btnRed.addEventListener("click", function () {
+    text.setAttribute("class", "redText");
+});
+
+// クリックしたらサイズが大きくなるイベント
+btnBig.addEventListener("click", function () {
+    text.setAttribute("class", "bigText");
+});
+```
+
 ### 要素の取得(getElements)
 ```js
 // さつまいも
