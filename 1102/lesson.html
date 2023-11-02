@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>カウンター</title>
+    <style>
+        body {
+            width: 100%;
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        // bodyを取得
+        const body_element = document.querySelector("body");
+        const color_array = ["pink", "blue", "orange", "green", "tomato"];
+
+        // カウンター用変数
+        let counter = 0;
+
+        // bodyにクリックイベントを設定
+        body_element.addEventListener("click", function () {
+            // bodyの背景色を変更する
+            // カウンターが５より大きかったら０に戻す
+            if (counter == 5) {
+                counter = 0;
+                // 背景色書き換え
+                body_element.style.backgroundColor = color_array[counter];
+                console.log(counter);
+                // カウンターを１増やす
+                counter++;
+            } else {
+                // 背景色書き換え
+                body_element.style.backgroundColor = color_array[counter];
+                console.log(counter);
+                // カウンターを１増やす
+                counter++;
+            }
+        });
+
+    </script>
+</body>
+
+</html>

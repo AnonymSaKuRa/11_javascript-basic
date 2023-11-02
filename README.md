@@ -6,6 +6,69 @@
 
 
 ## 11月２日
+
+### イベントリスナー練習
+```js
+//画像ファイル名は、配列から取得します。
+ const fujiImg_list = ["images/mt-fuji001.jpg", "images/mt-fuji002.jpg", "images/mt-fuji003.jpg"];
+
+// 画像のタグ<img>要素を変数に取得
+let fuji = document.querySelector("img");
+console.log(fuji);
+
+//富士山のボタン全てを querySelectorAll で変数に取得
+const fuji_btn = document.querySelectorAll(".image-fuji");
+console.log(fuji_btn);
+
+//NodeList なので for 文でそれぞれのボタンに click イベントを登録する。(addEventListener)
+
+
+// カウンター変数
+let counter = 0;
+
+// 前のボタンを押したら一つ前の画像に戻る
+// １つ目の写真で前に戻ると３枚目の写真が映るようにする
+fuji_btn[0].addEventListener("click", function () {
+  counter--;
+  if (counter == -1) {
+    counter = 2;
+  }
+  fuji.setAttribute("src", fujiImg_list[counter]);
+})
+
+// 次のボタンを押したら一つ前の画像に戻る
+// ３つ目の写真で前に戻ると１枚目の写真が映るようにする
+fuji_btn[1].addEventListener("click", function () {
+  counter++;
+  if (counter == 3) {
+    counter = 0;
+  }
+  fuji.setAttribute("src", fujiImg_list[counter]);
+})
+
+// for文バージョン
+for (let i = 0; i < fuji_btn.length; i++) {
+  fuji_btn[i].addEventListener("click", function () {
+    fuji.setAttribute("src", fujiImg_list[i]);
+  });
+};
+
+// 個別バージョン
+fuji_btn[0].addEventListener("click", function () {
+  fuji.setAttribute("src", fujiImg_list[0]);
+});
+
+fuji_btn[1].addEventListener("click", function () {
+  fuji.setAttribute("src", fujiImg_list[1]);
+});
+
+fuji_btn[2].addEventListener("click", function () {
+  fuji.setAttribute("src", fujiImg_list[2]);
+});
+
+//ボタンをクリックすると、画像の src 属性に配列 fujiImg_list 内の要素が設定される（setAttribute）ことで画像への path が設定されます。
+```
+
 ### クリックイベント復習
 ```js
 //  要素の取得
