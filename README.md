@@ -21,7 +21,7 @@ dacingBtn.addEventListener("click", function () {
 });
 
 stopBtn.addEventListener("click", function () {
-  dancer.removeAttribute("dance");
+  dancer.removeAttribute("class", "dance");
 });
 
 // クリックされたら画像を切り替える
