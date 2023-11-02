@@ -5,6 +5,31 @@
 2. 10月5日（木）Github　リポジトリ作成
 
 
+## 11月２日
+### クリックイベント復習
+```js
+//  要素の取得
+const dacingBtn = document.querySelector(".dancing");
+const stopBtn = document.querySelector(".stop");
+const changeBtn = document.querySelector(".change");
+const dancer = document.querySelector("img");
+
+// クリックイベントをつける
+// クラス名にdanceをつけたり消したりして回転を制御する
+dacingBtn.addEventListener("click", function () {
+  dancer.setAttribute("class", "dance");
+});
+
+stopBtn.addEventListener("click", function () {
+  dancer.removeAttribute("class", "dance");
+});
+
+// クリックされたら画像を切り替える
+changeBtn.addEventListener("click", function () {
+  dancer.setAttribute("src", "images/ballet_woman.png");
+});
+```
+
 ## １０月２６日
 
 ### addEventListenerとsetAttribute
