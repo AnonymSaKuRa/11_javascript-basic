@@ -5,6 +5,83 @@
 2. 10月5日（木）Github　リポジトリ作成
 
 
+## 11月９日
+
+### ボタンで敵が出現したり、消えたりする処理
+```js
+// こちらに記述していきます。
+// 六天魔王に対する処理
+
+// 画像の取得
+const satan = document.querySelector(".satan img");
+console.log(satan);
+
+// ボタンの取得
+const satanBtn = document.querySelector(".satansBtn");
+console.log(satanBtn);
+
+// クリックイベントをつける
+satanBtn.addEventListener("click", function () {
+  satan.classList.toggle("hide");
+});
+
+// その他の敵の処理
+// すべての敵を取得
+const enemyImg = document.querySelectorAll(".enemy img");
+console.log(enemyImg);
+
+// すべてのボタンを取得
+const attackBtn = document.querySelectorAll(".enemyBtn");
+console.log(attackBtn);
+
+// for文ですべてのボタンにクリックイベントをつける
+for (let i = 0; i < attackBtn.length; i++) {
+  attackBtn[i].addEventListener("click", function () {
+    enemyImg[i].classList.toggle("hide");
+  });
+}
+```
+
+### 画面の左右を判定し、左右それぞれのリストに文字を追加する処理
+```html
+<section>
+  <h1>左右どっち？</h1>
+    <div class="clickArea">
+        <ol class="leftZone"></ol>
+        <ol class="rightZone"></ol>
+    </div>
+</section>
+```
+```js
+const widthsize = window.innerWidth; //現在のブラウザの横幅
+console.log(widthsize);
+//以下から記述していきます。
+
+// 左右のリストを取得
+const leftZone = document.querySelector(".leftZone");
+const rightZone = document.querySelector(".rightZone");
+
+// bodyにクリックイベントをつける
+document.body.addEventListener("click", function (event) {
+  // クリックしたX軸が取得できる
+  console.log(event.clientX);
+
+  // クリックされた座標(左右)で処理を分ける
+  if (event.clientX < 1270 / 2) {
+      console.log("左です");
+      const leftLIst = document.createElement("li");  //liを作るための変数を用意する
+      leftLIst.textContent = "左";                    //liのテキストに代入
+      leftZone.appendChild(leftLIst);                 //appendChild()で最後に追加
+
+  } else {
+      console.log("右です");
+      const rightLIst = document.createElement("li"); //liを作るための変数を用意する
+      rightLIst.textContent = "右";                   //liのテキストに代入
+      rightZone.appendChild(rightLIst);               //appendChild()で最後に追加
+  }
+});
+```
+
 ## 11月２日
 
 ### イベントリスナー練習

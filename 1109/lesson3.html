@@ -48,15 +48,15 @@
             // クリックされた座標(左右)で処理を分ける
             if (event.clientX < 1270 / 2) {
                 console.log("左です");
-                const leftLIst = document.createElement("li");  //liを作るための変数を用意する
-                leftLIst.textContent = "左";                    //liのテキストに代入
-                leftZone.appendChild(leftLIst);                 //appendChild()で最後に追加
+                const leftList = document.createElement("li");  //liを作るための変数を用意する
+                leftList.textContent = "左";                    //liのテキストに代入
+                leftZone.appendChild(leftList);                 //appendChild()で最後に追加
 
             } else {
                 console.log("右です");
-                const rightLIst = document.createElement("li"); //liを作るための変数を用意する
-                rightLIst.textContent = "右";                   //liのテキストに代入
-                rightZone.appendChild(rightLIst);               //appendChild()で最後に追加
+                const rightList = document.createElement("li"); //liを作るための変数を用意する
+                rightList.textContent = "右";                   //liのテキストに代入
+                rightZone.appendChild(rightList);               //appendChild()で最後に追加
             }
         });
     </script>
