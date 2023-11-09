@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>左右</title>
+    <style>
+        body {
+            height: 100vh;
+        }
+
+        .clickArea {
+            display: flex;
+            width: 100%;
+        }
+
+        .clickArea ol {
+            width: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <h1>左右どっち？</h1>
+        <div class="clickArea">
+            <ol class="leftZone"></ol>
+            <ol class="rightZone"></ol>
+        </div>
+    </section>
+
+    <script>
+        const widthsize = window.innerWidth; //現在のブラウザの横幅
+        console.log(widthsize);
+
+        //以下から記述していきます。
+
+        // 左右のリストを取得
+        const leftZone = document.querySelector(".leftZone");
+        const rightZone = document.querySelector(".rightZone");
+
+        // bodyにクリックイベントをつける
+        document.body.addEventListener("click", function (event) {
+            // クリックしたX軸が取得できる
+            console.log(event.clientX);
+
+            // クリックされた座標(左右)で処理を分ける
+            if (event.clientX < 1270 / 2) {
+                console.log("左です");
+                const leftLIst = document.createElement("li");  //liを作るための変数を用意する
+                leftLIst.textContent = "左";                    //liのテキストに代入
+                leftZone.appendChild(leftLIst);                 //appendChild()で最後に追加
+
+            } else {
+                console.log("右です");
+                const rightLIst = document.createElement("li"); //liを作るための変数を用意する
+                rightLIst.textContent = "右";                   //liのテキストに代入
+                rightZone.appendChild(rightLIst);               //appendChild()で最後に追加
+            }
+        });
+    </script>
+</body>
+
+</html>
