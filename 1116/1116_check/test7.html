@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>テスト問７</title>
+</head>
+
+<body>
+    <h1>カラーボタン</h1>
+    <div class="colorlist">
+        <button id="red">赤色</button>
+        <button id="blue">青色</button>
+        <button id="green">緑色</button>
+        <button id="yellow">黄色</button>
+        <button id="pink">桃色</button>
+        <button id="purple">紫色</button>
+    </div>
+
+    <script>
+        const bgColor = document.querySelectorAll("button");
+
+        for (let i = 0; i < bgColor.length; i++) {
+            bgColor[i].addEventListener("click", function () {
+                document.body.style.backgroundColor = bgColor[i].id;
+            });
+        }
+
+        // 問９
+        const age = Math.floor(Math.random() * 100);
+        let message;
+
+        //ここに記述
+        if (age < 18) {
+            message = "未成年";
+        } else if (age >= 18 && age < 65) {
+            message = "成人";
+        } else {
+            message = "シニア";
+        }
+
+        //ここまで
+        console.log(`年齢: ${age} 歳, メッセージ: ${message}`);
+    </script>
+</body>
+
+</html>

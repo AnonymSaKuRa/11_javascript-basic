@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>テスト問１０</title>
+    <style>
+        section {
+            width: 50%;
+            margin: auto;
+            text-align: center;
+        }
+
+        img {
+            width: 50%;
+        }
+
+        .unit {
+            font-size: 1.5em;
+        }
+
+        .price p {
+            display: inline-block;
+        }
+
+        .order {
+            font-size: 1.2em;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <h1>醤油らーめん</h1>
+        <div class="ramenArea">
+            <img src="https://4.bp.blogspot.com/-SmXTKx3nBcA/UrlnHYwXxoI/AAAAAAAAcOA/erB3n3GC80E/s800/ramen_syouyu.png"
+                alt="醤油ラーメン">
+            <p class="unit"><span>450</span>円</p>
+        </div>
+        <div class="price">
+            <button class="minus">-</button>
+            <p class="num">0</p>
+            <button class="plus">+</button>
+        </div>
+        <button class="order">注文する</button>
+        <p class="result"></p>
+    </section>
+
+    <script>
+        // マイナスボタン
+        const minus = document.querySelector(".minus");
+        // プラスボタン
+        const plus = document.querySelector(".plus");
+        // 数量
+        const num = document.querySelector(".num");
+        // 注文ボタン
+        const order = document.querySelector(".order");
+        // 代金（リザルト）
+        const result = document.querySelector(".result");
+
+        // 数量用のカウンタ
+        let counter = 0;
+        // 商品の値段
+        const price = 450;
+
+        // マイナスを押したときの処理
+        minus.addEventListener("click", function () {
+            counter--;
+            // ０以下にならないようにする
+            if (counter < 0) {
+                counter = 0;
+            }
+            num.textContent = counter;
+        });
+
+        // プラスを押したときの処理
+        plus.addEventListener("click", function () {
+            counter++;
+            num.textContent = counter;
+        });
+
+        // 注文を押したときの処理
+        order.addEventListener("click", function () {
+            result.textContent = price * counter + "円";
+        });
+
+    </script>
+</body>
+
+</html>
