@@ -5,6 +5,108 @@
 2. 10月5日（木）Github　リポジトリ作成
 
 
+## 11月16日
+
+### 中間テスト問10 ラーメンの値段計算
+```html
+<section>
+    <h1>醤油らーめん</h1>
+    <div class="ramenArea">
+        <img src="https://4.bp.blogspot.com/-SmXTKx3nBcA/UrlnHYwXxoI/AAAAAAAAcOA/erB3n3GC80E/s800/ramen_syouyu.png"
+            alt="醤油ラーメン">
+        <p class="unit"><span>450</span>円</p>
+    </div>
+    <div class="price">
+        <button class="minus">-</button>
+        <p class="num">0</p>
+        <button class="plus">+</button>
+    </div>
+    <button class="order">注文する</button>
+    <p class="result"></p>
+</section>
+```
+
+```js
+// マイナスボタン
+const minus = document.querySelector(".minus");
+// プラスボタン
+const plus = document.querySelector(".plus");
+// 数量
+const num = document.querySelector(".num");
+// 注文ボタン
+const order = document.querySelector(".order");
+// 代金（リザルト）
+const result = document.querySelector(".result");
+
+// 数量用のカウンタ
+let counter = 0;
+// 商品の値段
+const price = 450;
+
+// マイナスを押したときの処理
+minus.addEventListener("click", function () {
+    counter--;
+    // ０以下にならないようにする
+    if (counter < 0) {
+        counter = 0;
+    }
+    num.textContent = counter;
+});
+
+// プラスを押したときの処理
+plus.addEventListener("click", function () {
+    counter++;
+    num.textContent = counter;
+});
+
+// 注文を押したときの処理
+order.addEventListener("click", function () {
+    result.textContent = price * counter + "円";
+});
+```
+
+### 振り返り問題と「かつ」、「または」の書き方
+```js
+const word = ["Java", "JavaScript", "Ruby", "Go", "PHP"];
+
+// 変数の宣言
+const resultBtn = document.querySelector("button");
+const resultArea = document.querySelector(".result");
+
+resultBtn.addEventListener("click", function () {
+    const num = Math.round(Math.random() * 4);
+    if (word[num] == word[1]) {
+        console.log("成功");
+        resultArea.textContent = word[1];
+    } else {
+        resultArea.textContent = "違う言語です";
+    }
+});
+
+const n1 = 1;
+const n2 = 2;
+
+// または
+if (n1 === 1 || n2 === 1) {
+    console.log(true);
+} else {
+    console.log(false);
+}
+
+// かつ
+if (n1 === 1 && n2 === 1) {
+    console.log(true);
+} else {
+    console.log(false);
+}
+
+if (n1 === 1 && n2 === 2) {
+    console.log(true);
+} else {
+    console.log(false);
+}
+```
+
 ## 11月９日
 
 ### ボタンで敵が出現したり、消えたりする処理
