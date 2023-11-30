@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>犬派猫派</title>
+</head>
+
+<body>
+    <ul>
+        <li>犬</li>
+        <li>猫</li>
+    </ul>
+    <p class="result"></p>
+    <div class="fnArea"></div>
+
+    <script>
+        const li = document.querySelectorAll("li");
+        const result = document.querySelector(".result");
+
+        const check = function (animal) {
+            console.log(animal);
+            result.textContent = `あなたは、${animal}派です。`;
+        };
+
+        for (let i = 0; i < li.length; i++) {
+            li[i].addEventListener("click", function () {
+                check(this.innerText);
+            });
+        }
+
+        const yoshinoya = function (name, size, option, price) {
+            console.log(`${name}の${size}、${option}で${price}円`);
+        };
+
+        //関数の実行
+        yoshinoya("牛丼", "並盛", "つゆだく", 388); //牛丼の並盛、つゆだくで 388 円
+        yoshinoya("豚丼", "大盛", "たまご", 592); //豚丼の大盛、たまごで 592 円
+
+        // 引数が配列
+        const sumCard = function (card) {
+            let total = 0;
+            for (let i = 0; i < card.length; i++) {
+                total += card[i]; //toral = total + card[i]
+            }
+            console.log(total);
+        };
+
+        const card_list = [1, 2, 3, 4];
+        sumCard(card_list); //10
+
+        // .fnAreaに配列の要素をリスト追加する関数を作成
+        const member_list = ["チェウォン", "サクラ", "ユンジン", "カズハ", "ウンチェ"];
+        const mugiwara_list = ["モンキー・D・ルフィ", "ナミ", "ロロノア・ゾロ", "ヴィンスモーク・サンジ", "ウソップ", "トニートニー・チョッパー", "ニコ・ロビン", "フランキー", "ブルック", "ジンベエ"];
+
+        const memberArea = document.querySelector(".fnArea");
+
+        const memberPush = function (member) {
+            // ulを作る
+            const ul = document.createElement("ul");
+            // ulをfnAreaに追加
+            memberArea.appendChild(ul);
+
+            for (let i = 0; i < member.length; i++) {
+                // liを作る
+                const li = document.createElement("li");
+                // liにテキストを入れる
+                li.textContent = member[i];
+                console.log(member[i]);
+                // ulの一番最後にliを追加
+                ul.appendChild(li);
+            }
+        };
+
+        // 関数の実行
+        memberPush(member_list);
+        memberPush(mugiwara_list);
+
+    </script>
+</body>
+
+</html>
