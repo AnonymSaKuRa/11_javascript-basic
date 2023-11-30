@@ -61,7 +61,8 @@
     for (let i = 0; i < xg.length; i++) {
       xg[i].addEventListener("mouseover", function () {
         member.setAttribute("src", `./images/${images[i]}`);
-        member.setAttribute("alt", `${xg[i]}`);
+        member.setAttribute("alt", `${xg[i].textContent}`);
+        console.log(member);
       });
     }
   </script>
