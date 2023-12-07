@@ -104,6 +104,51 @@
 
     //上記の配列を使って、JavaScriptで最優秀選手賞と同じhtmlを作成し、縦に並べてください。
     //for文を使って一気に作成してください。
+    const body = document.querySelector("body");
+
+    for (let i = 0; i < 9; i++) {
+      // div.cardの作成
+      const div_card = document.createElement("div");
+      div_card.setAttribute("class", "card");
+      body.appendChild(div_card);
+
+      // imageareaの作成
+      const div_imagearea = document.createElement("div");
+      div_imagearea.setAttribute("class", "imagearea");
+      div_card.appendChild(div_imagearea);
+
+      // imgをimageareaに追加
+      const img = document.createElement("img");
+      img.setAttribute("src", `images/${images[i]}`);
+      img.setAttribute("alt", `${name[i]}`);
+      div_imagearea.appendChild(img);
+
+      // div.textの作成
+      const div_text = document.createElement("text");
+      div_text.setAttribute("class", "text");
+      div_card.appendChild(div_text);
+
+      // h2の作成
+      const h2 = document.createElement("h2");
+      h2.textContent = name[i];
+      div_text.appendChild(h2);
+
+      // p_awardの作成
+      const p_award = document.createElement("p");
+      p_award.textContent = award[i];
+      div_text.appendChild(p_award);
+
+      // p_logoの作成
+      const p_logo = document.createElement("p");
+      p_logo.textContent = team[i];
+      div_text.appendChild(p_logo);
+
+      // team_logoを作成
+      const team_logo = document.createElement("img");
+      team_logo.setAttribute("src", `images/${logo[i]}`);
+      team_logo.setAttribute("alt", `${team[i]}ロゴ`);
+      div_text.appendChild(team_logo);
+    }
   </script>
 </body>
 

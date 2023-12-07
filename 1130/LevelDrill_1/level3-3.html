@@ -64,6 +64,12 @@
         member.setAttribute("alt", `${xg[i].textContent}`);
         console.log(member);
       });
+
+      xg[i].addEventListener("mouseout", function () {
+        member.setAttribute("src", `https://xgalx.com/xg/assets/img/common/logo_sitetitle.svg`);
+        member.setAttribute("alt", `XGロゴ`);
+        console.log(member);
+      })
     }
   </script>
 </body>

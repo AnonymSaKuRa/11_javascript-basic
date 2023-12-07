@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>グラーバル変数とローカル変数</title>
+</head>
+
+<body>
+    <script>
+        /*
+        const globalData = "hogehoge"; //グローバル変数
+
+        const foobaa = function () {
+            const localData = "fugafuga"; //ローカル変数
+        };
+
+        console.log(globalData);
+        // console.log(localData); //エラー
+         */
+
+        const globalData = "hogehoge";
+        const foobaa = () => {
+            const globalData = "fugafuga";
+            console.log(globalData);
+        };
+        console.log(globalData);
+    </script>
+</body>
+
+</html>

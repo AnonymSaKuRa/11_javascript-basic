@@ -28,6 +28,16 @@
 
     const num = Math.floor(Math.random() * 5);
     const foods = document.querySelectorAll(".foods li");
+
+    for (let i = 0; i < foods.length; i++) {
+      foods[i].addEventListener("click", function () {
+        if (i === num) {
+          console.log("あたり");
+        } else {
+          console.log("ハズレ");
+        }
+      });
+    }
   </script>
 </body>
 

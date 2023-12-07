@@ -13,6 +13,8 @@
         <li>猫</li>
     </ul>
     <p class="result"></p>
+    <button class="lesserafim">ルセラフィムメンバー</button>
+    <button class="onepeace">麦わらの一味</button>
     <div class="fnArea"></div>
 
     <script>
@@ -59,24 +61,34 @@
         const memberPush = function (member) {
             // ulを作る
             const ul = document.createElement("ul");
-            // ulをfnAreaに追加
-            memberArea.appendChild(ul);
 
             for (let i = 0; i < member.length; i++) {
                 // liを作る
                 const li = document.createElement("li");
                 // liにテキストを入れる
                 li.textContent = member[i];
-                console.log(member[i]);
                 // ulの一番最後にliを追加
                 ul.appendChild(li);
             }
+            memberArea.innerHTML = "";
+            // ulをfnAreaに追加
+            memberArea.appendChild(ul);
         };
 
         // 関数の実行
-        memberPush(member_list);
-        memberPush(mugiwara_list);
+        // memberPush(member_list);
+        // memberPush(mugiwara_list);
 
+        const lesserafimBtn = document.querySelector(".lesserafim");
+        const onepeaceBtn = document.querySelector(".onepeace");
+
+        lesserafimBtn.addEventListener("click", function () {
+            memberPush(member_list);
+        });
+
+        onepeaceBtn.addEventListener("click", function () {
+            memberPush(mugiwara_list);
+        });
     </script>
 </body>
 
