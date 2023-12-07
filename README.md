@@ -1,9 +1,89 @@
 # 2023年後期「JavaSctipt基礎」授業課題
 
 ## 授業内コード
-1. 10月5日（木）初めての一歩
-2. 10月5日（木）Github　リポジトリ作成
 
+## 12月7日
+
+### スコープ
+```js
+// グローバル変数の初期化※再代入可能にするためletを使う。
+let global = "グローバル変数";
+//関数funcの定義
+const func = function () {
+  //ローカル変数の初期化
+  let local = "ローカル変数";
+
+  //グローバル変数の表示
+  console.log(global);
+
+  //ローカル変数の表示
+  console.log(local);
+
+  global = "グローバル変数を再代入";
+  console.log(global);
+
+  var global = "グローバル変数を再定義";
+  console.log(global);
+}
+if (global) {
+  var local2 = "varは関数スコープ";
+  let local3 = "letはブロックスコープ";
+}
+
+// 関数の実行
+func();
+//グローバルはvar global = "グローバル変数を再定義";で再定義されているので、undefinedになる。
+console.log(global);  //グローバル変数の表示
+console.log(local2);  //varは関数スコープなので、if文の外で呼び出せる。
+console.log(local3);  //letはブロックスコープなので、if文の外で呼び出せない。
+```
+
+```js
+const globalData = "hogehoge";
+const foobaa = () => {
+  const globalData = "fugafuga";
+  console.log(globalData);
+};
+console.log(globalData);
+```
+
+### 戻り値
+```js
+const taxIn = document.querySelector(".taxIn");
+const btn = document.querySelectorAll("button");
+const cake = 450;
+const taxPrice = function (price, tax) {
+    return price * tax;
+}
+
+for (let i = 0; i < btn.length; i++) {
+  btn[i].addEventListener("click", function () {
+    if (i === 0) {
+      taxIn.textContent = Math.round(taxPrice(cake, 1.08)); // Math.round(小数点以下切り捨て)
+    } else {
+      axIn.textContent = Math.round(taxPrice(cake, 1.1));
+    }
+  });
+}
+```
+
+```js
+const addition = function (a, b) {
+  const c = a + b;
+  console.log(c);
+}
+
+addition(10, 11); //21
+addition(30, "6"); //306
+
+const addition2 = function (a, b) {
+  const c = a * b;
+  return c;
+}
+
+const result = addition2(5, 5);
+console.log(result); //25
+```
 
 ## 11月16日
 
