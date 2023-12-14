@@ -2,6 +2,133 @@
 
 ## 授業内コード
 
+## 12月14日
+
+### アロー関数
+```js
+// 従来の関数式
+const dog = function () {
+    return "わんわん";
+}
+
+// 関数の定義
+function dog2() {
+    return "バウバウ";
+}
+console.log(dog()); //わんわん
+console.log(dog2()); //バウバウ
+
+// アロー関数の関数式
+const cat = () => {
+    return "にゃーにゃー";
+};
+console.log(cat()); //にゃーにゃー
+
+// 鳴き方を決めたい
+const animal = (voice) => {
+    return voice;
+};
+console.log(animal("みゃあみゃあ"));
+
+const thisElm = document.querySelector("p");
+// アロー関数で「this」は使えない
+// 引数を入れれば取れる（よく使うのは「e」）
+thisElm.addEventListener("click", (e) => {
+    console.log(e.target.innerHTML);
+});
+```
+
+### コールバック関数
+
+```js
+// 富士山のスライドショーをタイマー化
+const nextBtnClick = () => {
+  count++;
+  if (count === fujiImg_list.length) {
+    count = 0;
+  } else if (count < 0) {
+    count = fujiImg_list.length - 1;
+  } else {
+    count = count;
+  }
+  imageArea.setAttribute("src", `images/${fujiImg_list[count]}`);
+}
+
+const slideShow = function (func) {
+  setInterval(func, 2000);
+};
+
+slideShow(nextBtnClick);
+```
+
+```js
+// コールバック関数の書き方
+// 関数式①
+const concatenateSpace = function (lastName, firstName) {
+    // lastName = nameParam[0]、firstName = nameParam[1]
+    return lastName + " " + firstName;
+};
+
+// 関数式②
+const useConcatenate = function (name, func) {
+    // concatenateSpaceの戻り値が入る、引数はnameParamから取得
+    let concatName = func(name[0], name[1]);
+    console.log("結合結果：" + concatName);
+};
+
+let nameParam = ["櫻井", "陸志"];
+// 関数式②の実行（引数1 = 配列、引数2 = 関数名）
+useConcatenate(nameParam, concatenateSpace); //結合結果：中田 雄二
+
+
+// コールバック関数の基本（よく使うパターン）
+// 関数式①
+const testFunc = function (func) {
+    // func = callback(関数式②)
+    console.log("testFuncが実行されました");
+    // 2秒後に実行
+    setTimeout(function () {
+        func();
+    }, 2000);
+};
+
+// 関数式②
+const callback = function () {
+    console.log("callbackが実行されました");
+};
+
+// 関数式①を実行
+testFunc(callback);
+```
+
+```js
+// 動物を走らせる
+const startBtn = document.querySelector(".startBtn");
+const resetBtn = document.querySelector(".resetBtn");
+const animalSpeed = [3, 4, 1, 3, 2];
+const animals = document.querySelectorAll("li span");
+
+// ここに関数animalsRunを作成してください。
+const animalsRun = (runner) => {
+    for (let i = 0; i < animals.length; i++) {
+        runner[i].style.transitionDuration = animalSpeed[i] + "s";
+        runner[i].classList.add("run");
+    }
+};
+
+startBtn.addEventListener("click", function () {
+    animalsRun(animals);
+});
+
+// リセットボタンの追加
+resetBtn.addEventListener("click", () => {
+    for (let i = 0; i < animals.length; i++) {
+        animals[i].style.transitionDuration = 0 + "s";
+        animals[i].classList.remove("run");
+    }
+});
+```
+
 ## 12月7日
 
 ### スコープ
