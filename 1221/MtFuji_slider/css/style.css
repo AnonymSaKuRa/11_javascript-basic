@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+body {
+    position: relative;
+}
+
+.slide {
+    display: flex;
+    width: 80%;
+    overflow: hidden;
+    margin: auto;
+}
+
+.slide img {
+    width: 100%;
+    min-width: 100%;
+    transition: all .5s ease-in;
+}
+
+.slide img:first-child {
+    margin-left: -100%;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.l-btn,
+.r-btn {
+    position: absolute;
+    top: 0;
+    font-size: 200px;
+    opacity: .1;
+    cursor: pointer;
+}
+
+.r-btn {
+    right: 0;
+}
