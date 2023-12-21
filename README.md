@@ -2,6 +2,126 @@
 
 ## 授業内コード
 
+## 12月２１日
+
+### 富士山スライドショー作成
+
+```html
+<!doctype html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>slideshow</title>
+    <link rel="stylesheet" href="css/amore_modern_reset.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <p class="l-btn">&lt;</p>
+    <div class="slide">
+        <img src="images/mt-fuji001.jpg" alt="富士山1">
+        <img src="images/mt-fuji002.jpg" alt="富士山2">
+        <img src="images/mt-fuji003.jpg" alt="富士山3">
+        <img src="images/mt-fuji004.jpg" alt="富士山4">
+        <img src="images/mt-fuji005.jpg" alt="富士山5">
+        <img src="images/mt-fuji006.jpg" alt="富士山6">
+    </div>
+    <p class="r-btn">&gt;</p>
+
+    <div class="buttons">
+        <button class="leftBtn">左へ</button>
+        <button class="rightBtn">右へ</button>
+    </div>
+
+    <script src="script/script.js"></script>
+</body>
+
+</html>
+```
+
+```css
+@charset "UTF-8";
+
+body {
+    position: relative;
+}
+
+.slide {
+    display: flex;
+    width: 80%;
+    overflow: hidden;
+    margin: auto;
+}
+
+.slide img {
+    width: 100%;
+    min-width: 100%;
+    transition: all .5s ease-in;
+}
+
+.slide img:first-child {
+    margin-left: -100%;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.l-btn,
+.r-btn {
+    position: absolute;
+    top: 0;
+    font-size: 200px;
+    opacity: .1;
+    cursor: pointer;
+}
+
+.r-btn {
+    right: 0;
+}
+```
+
+```js
+const images = document.querySelectorAll(".slide img");
+const slide = document.querySelector(".slide");
+
+const lBtn = document.querySelector(".l-btn");
+const rBtn = document.querySelector(".r-btn");
+
+const leftBtn = document.querySelector(".leftBtn");
+const rightBtn = document.querySelector(".rightBtn");
+
+// 指定した場所の前に指定したノードを入れるというメソッド
+slide.insertBefore(images[images.length - 1], images[0]);
+
+const leftSlider = () => {
+    const slideImages = document.querySelectorAll(".slide img");
+    slideImages[1].removeAttribute("style");
+    slideImages[0].style.marginLeft = "0";
+    slide.insertBefore(slideImages[slideImages.length - 1], slideImages[0]);
+}
+
+const rightSlider = () => {
+    const slideImages = document.querySelectorAll(".slide img");
+    slide.appendChild(slideImages[0]);
+    slideImages[1].removeAttribute("style");
+}
+
+leftBtn.addEventListener("click", leftSlider);
+rightBtn.addEventListener("click", rightSlider);
+
+// window.setInterval(rightSlider, 2000);
+
+lBtn.addEventListener("click", leftSlider);
+rBtn.addEventListener("click", rightSlider);
+```
+
 ## 12月14日
 
 ### アロー関数
