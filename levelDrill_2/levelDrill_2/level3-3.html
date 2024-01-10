@@ -53,12 +53,13 @@
     //例
     const member = document.querySelector(".member");
     const ryuhei = document.querySelector(".ryuhei");
-    const befirst = document.querySelectorAll(".befirst");
-    const memberImgs = ["ryuhei", "shunto", "manato", "ruiki", "sota", "leo", "junon"];
+    const befirst = document.querySelectorAll(".befirst li");
+    const memberImgs = ["ryuhei.jpg", "shunto.jpg", "manato.jpg", "ryoki.jpg", "sota.jpg", "leo.jpg", "junon.jpg"];
 
-    for (let i = 0; i < befirst.length;) {
+    for (let i = 0; i < befirst.length; i++) {
       befirst[i].addEventListener("mouseover", function () {
-        member.innerHTML = '<img src="images/ryuhei.jpg" alt="' + ryuhei.innerText + '">';
+        // member.innerHTML = '<img src="images/ryuhei.jpg" alt="' + ryuhei.innerText + '">';
+        member.innerHTML = `<img src="images/${memberImgs[i]}" alt="${befirst[i].innerHTML}"/>`;
       });
 
       befirst[i].addEventListener("mouseout", function () {
