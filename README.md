@@ -2,6 +2,88 @@
 
 ## 授業内コード
 
+## 1月１１日
+### オブジェクト
+```js
+const person = {
+  name: "",
+  age: 0,
+  infomation: function () {
+    return "名前:" + this.name + "\n年齢:" + this.age;
+  },
+}
+person.name = "山田太郎";
+person.age = 18;
+// console.log(person.name, person.age);
+console.log(person.infomation());
+
+
+
+const myCar_list = {}; //空のオブジェクトを作成
+myCar_list.make = "Ford";
+myCar_list.model = "Mustang";
+myCar_list.year = 1969;
+console.log(myCar_list); //{make: 'Ford', model: 'Mustang', year: 1969}
+
+console.log(myCar_list.model);
+console.log(myCar_list.year);
+
+/* オブジェクトの順番は保証されない（見る環境によって違う場所に追加される） */
+myCar_list["2021"] = "51年"; //ブラケットで設定
+console.log(myCar_list);
+console.log(myCar_list["2021"]);
+
+
+const dict = {
+  apple: "林檎",
+  banana: "バナナ",
+  orange: "オレンジ"
+};
+
+// 新規登録
+dict.grape = "ぶどう";
+
+// 削除
+delete dict.orange;
+
+// 再代入
+dict.apple = "りんご"
+console.log(dict);
+```
+
+### 九九
+```js
+const btn = document.querySelector(".btn");
+
+btn.addEventListener("click", (event) => {
+  // 送信する働きを無効化する
+  event.preventDefault();
+  const num = document.querySelector(".num").value;
+  if (num == 2) {
+    console.log("数値の2です。");
+  } else {
+    console.log("違います。");
+  }
+  const kuku = document.querySelector(".kuku");
+  for (let i = 0; i < 9; i++) {
+    const li = document.createElement("li");
+    kuku.appendChild(li);
+    li.innerText = num * (i + 1);
+  }
+})
+```
+
+### 簡単なフォーム(受け取り)
+```js
+const url = new URL(window.location.href);
+const params = url.searchParams;
+params.forEach(function (value, key) {
+  const li = document.createElement("li");
+  li.textContent = `${key}:${value}`;
+  document.querySelector(".result").appendChild(li);
+});
+```
+
 ## 12月２１日
 
 ### 富士山スライドショー作成
