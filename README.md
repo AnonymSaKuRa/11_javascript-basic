@@ -2,6 +2,123 @@
 
 ## 授業内コード
 
+## 1月18日
+### オブジェクトと配列 for...in文 for...of文
+```js
+const array = [];
+const num = [1, 2, 3];
+
+array.push(1);
+array.push(2);
+array.push(3);
+
+for (let num of array) {
+    console.log(num);
+}
+
+// テーブルに要素を入れたい
+const numbers = ["zero", "one", "two", "three", "four", "five"];
+const table = document.querySelector(".table_nam");
+
+for (let i = 0; i < numbers.length; i++) {
+    const tr = document.createElement("tr");
+    const td = document.createElement("td");
+    const td2 = document.createElement("td");
+    table.appendChild(tr);
+    tr.appendChild(td);
+    tr.appendChild(td2);
+    td.innerHTML = i;
+    td2.innerHTML = numbers[i];
+}
+
+const fruits = ["りんご", "もも", "バナナ"];
+const ul = document.querySelector("ul");
+
+for (let name of fruits) {
+    //console.log(name); // 配列の要素が入っている
+    const li = document.createElement("li");
+    li.innerHTML = name;
+    ul.appendChild(li);
+}
+
+const junishi = ["丑", "寅", "卯", "辰", "巳", "午", "未", "申", "酉", "戌"];
+const twopieces = ["子", "亥"];
+const junishis = document.querySelector(".junishis");
+
+junishi.unshift(twopieces[0]);
+junishi.push(twopieces[1]);
+
+console.log(junishi);
+
+for (eto of junishi) {
+    const list = document.createElement("li");
+    list.innerHTML = eto;
+    junishis.appendChild(list);
+}
+
+const staff = [
+    ["佐藤", 41, "東京"],
+    ["鈴木", 25, "大阪"],
+    ["林", 34, "札幌"],
+];
+
+for (let i = 0; i < staff.length; i++) {
+    for (let j = 0; j < staff[i].length; j++) {
+        console.log(staff[i][j]);
+    }
+}
+
+const animals = ["dog", "cat", "bird"];
+animals[2] = "lion";
+animals.push("tiger");  // 配列の一番最後に追加
+console.log(animals);
+
+const fruits = document.querySelectorAll("li");
+// fruits.push("<li>いちご</li>");  // 配列じゃないので使えない
+console.log(fruits);
+animals.unshift("elephant"); // 配列の一番最初に追加
+console.log(animals);
+
+const countries = {
+    Japan: "日本",
+    USA: "アメリカ",
+    China: "中国",
+    Korea: "韓国",
+};
+
+console.log(countries.USA);
+console.log(countries['USA']);
+
+// for...in文
+for (let country in countries) {
+    console.log(countries[country]);
+}
+
+//受験者名簿（オブジェクトの配列）
+const meibo_obj = [
+    { id: "20224", name: "新井太郎" },
+    { id: "20031", name: "井上次郎" },
+    { id: "20193", name: "山本花子" }
+];
+
+for (let i = 0; i < meibo_obj.length; i++) {
+    for (let key in meibo_obj[i]) {
+        console.log(key);
+        console.log(meibo_obj[i][key]);
+    }
+}
+
+let npbCentral_list = [
+    { team: "東京ヤクルトスワローズ", home: "東京" },
+    { team: "阪神タイガース", home: "大阪" },
+    { team: "読売ジャイアンツ", home: "東京" },
+    { team: "広島東洋カープ", home: "広島" },
+    { team: "中日ドラゴンズ", home: "名古屋" },
+    { team: "横浜DeNAベイスターズ", home: "横浜" },
+];
+console.log(npbCentral_list[4].home);
+```
+
 ## 1月１１日
 ### オブジェクト
 ```js

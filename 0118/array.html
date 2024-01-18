@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>配列の操作</title>
+</head>
+
+<body>
+    <ul>
+        <li>りんご</li>
+        <li>みかん</li>
+        <li>パイナップル</li>
+    </ul>
+
+    <script>
+        const animals = ["dog", "cat", "bird"];
+        animals[2] = "lion";
+        animals.push("tiger");  // 配列の一番最後に追加
+        // console.log(animals);
+
+        const fruits = document.querySelectorAll("li");
+        // fruits.push("<li>いちご</li>");  // 配列じゃないので使えない
+        // console.log(fruits);
+
+        animals.unshift("elephant"); // 配列の一番最初に追加
+        console.log(animals);
+
+    </script>
+
+    <ul class="junishis"></ul>
+    <script>
+        const junishi = ["丑", "寅", "卯", "辰", "巳", "午", "未", "申", "酉", "戌"];
+        const twopieces = ["子", "亥"];
+        const junishis = document.querySelector(".junishis");
+
+        junishi.unshift(twopieces[0]);
+        junishi.push(twopieces[1]);
+
+        console.log(junishi);
+
+        for (eto of junishi) {
+            const list = document.createElement("li");
+            list.innerHTML = eto;
+            junishis.appendChild(list);
+        }
+
+        const staff = [
+            ["佐藤", 41, "東京"],
+            ["鈴木", 25, "大阪"],
+            ["林", 34, "札幌"],
+        ];
+
+        for (let i = 0; i < staff.length; i++) {
+            for (let j = 0; j < staff[i].length; j++) {
+                console.log(staff[i][j]);
+            }
+        }
+
+    </script>
+</body>
+
+</html>
