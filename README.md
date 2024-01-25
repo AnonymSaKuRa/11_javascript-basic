@@ -2,6 +2,61 @@
 
 ## 授業内コード
 
+## １月２５日
+### jsonとData()オブジェクト
+```js
+const npb2023 = [
+    { Team: "阪神タイガース", Wins: 85, Loss: 53, Ties: 5, Rate: 0.616 },
+    { Team: "広島東洋カープ", Wins: 74, Loss: 65, Ties: 4, Rate: 0.532 },
+    { Team: "横浜DeNAベイスターズ", Wins: 74, Loss: 66, Ties: 3, Rate: 0.529 },
+    { Team: "読売ジャイアンツ", Wins: 71, Loss: 70, Ties: 2, Rate: 0.504 },
+    { Team: "東京ヤクルトスワローズ", Wins: 57, Loss: 83, Ties: 3, Rate: 0.407 },
+    { Team: "中日ドラゴンズ", Wins: 56, Loss: 82, Ties: 5, Rate: 0.406 },
+];
+
+// []配列リテラル、{}オブジェクトリテラル、""文字列リテラル、``テンプレートリテラル
+for (let team of npb2023) {
+    console.log(team);
+    for (let key in team) {
+        console.log(team[key]);
+    }
+}
+```
+
+```js
+const now = new Date(); // Dateオブジェクト
+console.log(now);
+
+const day = ["日", "月", "火", "水", "木", "金", "土"];
+console.log(now.getDay()); // 4
+console.log(day[now.getDay()]); // 木
+
+// 進級展までのカウントダウン
+const promotionDay = new Date("2024-2-8");
+console.log(promotionDay - now);
+const difference = promotionDay - now;
+
+// ミリ秒 → 秒
+const seconds = difference / 1000;
+console.log(seconds);
+
+// 秒 → 分
+const minites = seconds / 60;
+console.log(minites);
+
+// 分 → 時間
+const hours = minites / 60;
+console.log(hours);
+
+// 時間 → 日
+const days = hours / 24;
+console.log(days);
+
+// ミリ秒 → 日付
+const days2 = difference / (1000 * 60 * 60 * 24);
+console.log(days2);
+```
+
 ## 1月18日
 ### オブジェクトと配列 for...in文 for...of文
 ```js
