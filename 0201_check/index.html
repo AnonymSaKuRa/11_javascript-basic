@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学期末テスト</title>
+
+    <style>
+        .modal {
+            transition: all 1s ease-in;
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #eee;
+            border: 1px solid #cdcdcd;
+            padding: 1rem;
+        }
+
+        .modal.active {
+            opacity: 1;
+        }
+
+        .tabcontent.show {
+            display: block;
+        }
+
+        .tabcontent {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>三大栄養素</h1>
+    <ul>
+        <li class="protein">たんぱく質</li>
+        <li class="fats">脂質</li>
+        <li class="carbohydrate">炭水化物</li>
+    </ul>
+
+    <div class="counter">
+        <button class="decrease">-</button>
+        <span class="count">0</span>
+        <button class="increase">+</button>
+    </div>
+
+    <button id="openModalBtn">Open Modal</button>
+    <div class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>モーダルウィンドウです。</p>
+        </div>
+    </div>
+
+    <div class="tab">
+        <button class="tablinks">Tab1</button>
+        <button class="tablinks">Tab2</button>
+        <button class="tablinks">Tab3</button>
+    </div>
+
+    <div class="tabcontent show">
+        <h3>Tab1</h3>
+        <p>タブ1のコンテンツです。</p>
+    </div>
+    <div class="tabcontent">
+        <h3>Tab2</h3>
+        <p>タブ2のコンテンツです。</p>
+    </div>
+    <div class="tabcontent">
+        <h3>Tab3</h3>
+        <p>タブ3のコンテンツです。</p>
+    </div>
+
+    <ul class="list">
+        <li>バナナ</li>
+        <li>りんご</li>
+        <li>みかん</li>
+        <li>パイナップル</li>
+    </ul>
+    <button class="resultBtn">結果を表示</button>
+    <ul class="result"></ul>
+
+    <ul class="weather">
+        <li>晴れ</li>
+        <li>曇り</li>
+        <li>雨</li>
+        <li>雪</li>
+    </ul>
+    <p class="opinion"></p>
+    <img src="./cat.jpg">
+
+    <script>
+        /* 問１０
+        ------------------------------------------------------------------------------ */
+        //このcatオブジェクトだけで下記を実現してください。
+        const cat = {
+            show() {
+                const catimg = `<img src="./cat.jpg">`
+                document.body.appendChild(catimg);
+            }
+        };
+
+        cat.show();
+
+
+
+        /* 問８
+        ------------------------------------------------------------------------------ */
+        const weathers = document.querySelectorAll(".weather li");
+        const opinion = document.querySelector(".opinion");
+
+        const say = (word) => {
+            if (word === "晴れ") {
+                opinion.innerHTML = "今日は良い天気で、気持ちが良いです。";
+            } else if (word === "曇り") {
+                opinion.innerHTML = "曇り空、穏やかな一日が待っている感じです。";
+            } else if (word === "雨") {
+                opinion.innerHTML = "雨音が心地よく、静かな時間を楽しめます。";
+            } else {
+                opinion.innerHTML = "雪景色が美しく、雪合戦やスキーに最適です。";
+            }
+        }
+
+        for (let word of weathers) {
+            word.addEventListener("click", () => {
+                say(word.textContent);
+            });
+        }
+
+
+        /*
+        ① 性別
+        ②名古屋市
+        ③誕生日を「2004年2月15日」表記で
+        ④カフェ巡り
+        ⑤〒460-0008 愛知県名古屋市中区栄1-2-3
+        */
+        const user = {
+            name: "鈴木花子",
+            age: 19,
+            gender: "女性",
+            email: "suzukihanako@example.com",
+            isAdmin: false,
+            address: {
+                street: "名古屋市中区栄1-2-3",
+                city: "名古屋市",
+                prefecture: "愛知県",
+                zipCode: "460-0008",
+            },
+            phoneNumbers: ["052-1234-5678", "070-9876-5432"],
+            hobbies: ["音楽鑑賞", "ショッピング", "カフェ巡り"],
+            birthday: new Date(2004, 0, 15), // 誕生日を YYYY, MM - 1, DD 形式で設定
+            accountBalance: 500.5,
+            preferredLanguages: ["日本語"],
+            subscriptionStatus: "アクティブ",
+            school: "名古屋市立高校",
+        };
+
+        console.log(user["gender"]);
+        console.log(user.address.city);
+        console.log(user.birthday.toLocaleDateString('sv-SE'));
+        console.log(user.hobbies[2]);
+        console.log(`〒${user["address"]["zipCode"]} ${user["address"]["street"]}`);
+
+
+
+
+
+        const fruitsArray = ["キウイ", "パパイヤ", "マンゴー"];
+        const fruits = document.querySelectorAll(".list li");
+        const result = document.querySelector(".result");
+        const resultBtn = document.querySelector(".resultBtn");
+        for (let i = 0; i < fruits.length; i++) {
+            fruits[i].addEventListener("click", () => {
+                fruitsArray.push(fruits[i].innerHTML);
+            });
+        }
+        resultBtn.addEventListener("click", () => {
+            for (let i = 0; i < fruitsArray.length; i++) {
+                const li = document.createElement("li");
+                li.innerHTML = fruitsArray[i];
+                result.appendChild(li);
+            }
+        });
+
+
+        const tablinks = document.querySelectorAll(".tablinks");
+        const tabcontent = document.querySelectorAll(".tabcontent");
+        for (let i = 0; i < tablinks.length; i++) {
+            tablinks[i].addEventListener("click", () => {
+                if (i === 0) {
+                    tabcontent[i].classList.add("show");
+                    tabcontent[i + 1].classList.remove("show");
+                    tabcontent[i + 2].classList.remove("show");
+                } else if (i === 1) {
+                    tabcontent[i].classList.add("show");
+                    tabcontent[i - 1].classList.remove("show");
+                    tabcontent[i + 1].classList.remove("show");
+                } else {
+                    tabcontent[i].classList.add("show");
+                    tabcontent[i - 2].classList.remove("show");
+                    tabcontent[i - 1].classList.remove("show");
+                }
+            });
+        }
+
+
+        const openModalBtn = document.querySelector("#openModalBtn");
+        const modal = document.querySelector(".modal");
+        const close = document.querySelector(".close");
+        openModalBtn.addEventListener("click", () => {
+            modal.classList.add("active");
+        });
+        close.addEventListener("click", () => {
+            modal.classList.remove("active");
+        });
+
+
+        const name = "大谷翔平の";
+        const number = "背番号は";
+        const num = "20";
+        const two = 2;
+        const seven = 7;
+        const ending = "です。"
+
+        //大谷翔平の背番号は17です。
+        const ohtaniText = document.createElement("p");
+        ohtaniText.innerHTML = name + number + ((num / two) + seven) + ending;
+        document.body.appendChild(ohtaniText);
+
+        pinkBlue = ["ピンクブルー", "Starry Drama", "ジブンセイフク", "あうん", "ミチヲユケ", "うそつき", "陽はまた昇るから", "湿気っている", "Don!! White Rabbit", "さもなくば誰がやる", "Slow dance"];
+        const mitiwoyuke = document.createElement("p");
+        mitiwoyuke.innerHTML = pinkBlue[4];
+        document.body.appendChild(mitiwoyuke);
+
+        const li = document.querySelectorAll("li");
+        for (let i = 0; i < li.length; i++) {
+            li[i].addEventListener("click", () => {
+                console.log(li[i].innerHTML);
+            });
+        }
+
+
+        const decrease = document.querySelector(".decrease");
+        const count = document.querySelector(".count");
+        const increase = document.querySelector(".increase");
+        let counter = 0;
+
+        decrease.addEventListener("click", () => {
+            if (counter === 0) {
+                counter = 0;
+            } else {
+                counter--;
+                count.innerHTML = counter;
+            }
+        });
+
+        increase.addEventListener("click", () => {
+            counter++;
+            count.innerHTML = counter;
+        });
+    </script>
+</body>
+
+</html>
